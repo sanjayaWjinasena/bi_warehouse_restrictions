@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="res_users_form_view_inherite_restrict_warehouse" model="ir.ui.view">
+            <field name="name">res.users.form.view.inherite.restrict.warehouse</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='preferences']/group" position="before">
+                    <group>
+                        <group string="Restrict Warehouse Operation">
+                            <field name="restrict_operation"/>
+                            <field name="operation_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"
+                                invisible="not restrict_operation" required="restrict_operation" />                                   
+                        </group>
+                        <group string="Restrict Warehouse Location">
+                            <field name="restrict_location"/>
+                            <field name="location_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"
+                                invisible="not restrict_location" required="restrict_location" />
+                        </group>
+                        <group string="Restrict Stock Warehouse Operation">
+                            <field name="restrict_warehouse_list"/>
+                            <field name="warehouse_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"
+                                invisible="not restrict_warehouse_list" required="restrict_warehouse_list"/>
+                        </group>
+                        <group string="Allowed Picking Location">
+                            <field name="allowed_source_locations_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"/>
+                            <field name="allowed_destination_locations_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"/>
+                        </group>
+                        <group string="Allowed MO Location">
+                            <field name="allowed_component_locations_ids" widget="many2many_tags" options="{'no_create_edit': True,'no_create': True}"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_location_form_inherit_user_inquiry" model="ir.ui.view">
+        <field name="name">stock.location.form.inherit.user.inquiry</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button"
+                        name="action_view_associated_users"
+                        type="object"
+                        icon="fa-users">
+                    <field name="user_count" widget="statinfo" string="Users using this location"/>
+                </button>
+            </div>
+        </field>
+    </record>
+    </data>
+</odoo>
