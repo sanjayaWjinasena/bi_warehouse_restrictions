@@ -2,7 +2,7 @@
 # Part of Browseinfo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Warehouse Restriction for User | Stock Location Restriction',
-    'version': '17.0.0.9',
+    'version': '17.0.1.0',
     'category': 'Warehouse',
     'summary': 'User Warehouse Restriction Warehouse location restriction user restriction on warehouse location stock access control stock access rules stock restriction restrict warehouse restrict location operation restriction stock access rules warehouse access rules',
     'description': """ 

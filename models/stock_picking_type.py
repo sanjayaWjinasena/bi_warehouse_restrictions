@@ -13,8 +13,8 @@ class InheritStockPickingType(models.Model):
     
     @api.model
     def search_fetch(self, domain, field_names, offset=0, limit=None, order=None):
-        # domain = domain or []
-        domain = []
+        domain = domain or []
+        # domain = []
         allowed_access = self.env.user.has_group('bi_warehouse_restrictions.group_restrict_operations')
         current_uid = self._context.get('uid')
         user = self.env['res.users'].browse(current_uid)
